@@ -132,7 +132,7 @@ class SearchAutocomplete {
 			$taxonomyTypes = "AND ( tax.taxonomy = '" . implode( "' OR tax.taxonomy = '", $this->options['autocomplete_taxonomies'] ) . "') ";
 			$queryStringTaxonomies = 'SELECT term.term_id as id, term.name as post_title, term.slug as guid, tax.taxonomy, 0 AS content_frequency, 0 AS title_frequency FROM ' . $wpdb->term_taxonomy . ' tax ' .
 					'LEFT JOIN ' . $wpdb->terms . ' term ON term.term_id = tax.term_id WHERE 1 = 1 ' .
-					'AND term.name LIKE "%' . $term . '%" ' .
+					'AND term.name_normal LIKE "' . $term . '%" ' .
 					$taxonomyTypes .
 					'ORDER BY tax.count DESC ' .
 					'LIMIT 0, ' . $this->options['autocomplete_numrows'];
