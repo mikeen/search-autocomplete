@@ -34,6 +34,8 @@
 			    });
 			},
 			minLength: options.minLength,
+            delay:10,
+            position:{collision:"flipfit"},
 			search: function(event, ui) {
 				$(event.currentTarget).addClass('sa_searching');
 			},
@@ -52,11 +54,11 @@
 						.menu
 						.element
 						.find('a')
-						.each(function () {
+						/*.each(function () {
 							var me = $(this);
 							var keywords = acData.term.split(' ').join('|');
 							me.html(me.text().replace(new RegExp("(" + keywords + ")", "gi"), '<span class="sa-found-text">$1</span>'));
-						});
+						})*/;
 				$(event.target).removeClass('sa_searching');
 			},
 			close: function() {
