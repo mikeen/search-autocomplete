@@ -34,6 +34,7 @@
 			    });
 			},
 			minLength: options.minLength,
+            delay:10,
 			search: function(event, ui) {
 				$(event.currentTarget).addClass('sa_searching');
 			},
