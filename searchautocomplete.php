@@ -74,11 +74,11 @@ class SearchAutocomplete {
 			wp_enqueue_style( 'SearchAutocomplete-theme', plugins_url( 'css' . $this->options['autocomplete_theme'], __FILE__ ), array(), '1.9.2' );
 		}
 		if ( wp_script_is( 'jquery-ui-autocomplete', 'registered' ) ) {
-			wp_enqueue_script( 'SearchAutocomplete', plugins_url( 'js/search-autocomplete.min.js', __FILE__ ), array( 'jquery-ui-autocomplete' ), '1.0.0', true );
+			wp_enqueue_script( 'SearchAutocomplete', plugins_url( 'js/search-autocomplete.js', __FILE__ ), array( 'jquery-ui-autocomplete' ), '1.0.0', true );
 		}
 		else {
 			wp_register_script( 'jquery-ui-autocomplete', plugins_url( 'js/jquery-ui-1.9.2.custom.min.js', __FILE__ ), array( 'jquery-ui' ), '1.9.2', true );
-			wp_enqueue_script( 'SearchAutocomplete', plugins_url( 'js/search-autocomplete.min.js', __FILE__ ), array( 'jquery-ui-autocomplete' ), '1.0.0', true );
+			wp_enqueue_script( 'SearchAutocomplete', plugins_url( 'js/search-autocomplete.js', __FILE__ ), array( 'jquery-ui-autocomplete' ), '1.0.0', true );
 		}
 		wp_localize_script( 'SearchAutocomplete', 'SearchAutocomplete', $localVars );
 	}

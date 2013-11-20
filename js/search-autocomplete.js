@@ -3,27 +3,28 @@
 		var options = $.extend({
 			'fieldName': '#s',
 			'maxRows': 10,
-			'minLength': 4,
+			'minLength': 4
 		}, SearchAutocomplete);
 
 		options.fieldName = $('<div />').html(options.fieldName).text();
 
-		
-
 		$(options.fieldName).autocomplete({
 			source: function( request, response ) {
+                var term = $(options.fieldName).val();
 			    $.ajax({
 			        url: options.ajaxurl,
 			        dataType: "json",
 			        data: {
 			        	action: 'autocompleteCallback',
-			            term: $(options.fieldName).val()
+			            term: term
 			        },
 			        success: function( data ) {
+                        data.results.unshift({title: "חיפוש חופשי: " + term , url:"?s=" + term});
 			            response( $.map( data.results, function( item ) {
+                            var title = $("<div />").html(item.title).text();
 			                return {
-			                	label: item.title,
-			                	value: item.title,
+			                	label: title,
+			                	value: title,
 			                	url: item.url
 			                }
 			            }));
