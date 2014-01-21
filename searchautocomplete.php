@@ -360,12 +360,9 @@ class SearchAutocomplete {
 
 	public function sa_settings_field_themes() {
 		$globFilter = dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'css' . DIRECTORY_SEPARATOR . '*' . DIRECTORY_SEPARATOR . '*.css';
-
-		if ( $themeOptions = glob( $globFilter, GLOB_ERR ) ) {
-			array_unshift( $themeOptions, __( '--None--', 'search-autocomplete') );
-		} else {
-
-		}
+		$themeOptions = glob( $globFilter, GLOB_ERR );
+		array_unshift( $themeOptions, __( '--None--', 'search-autocomplete') );
+        
 		?>
 		<select name="<?php echo self::$options_field; ?>[autocomplete_theme]" id="autocomplete_theme">
 			<?php
